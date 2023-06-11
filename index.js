@@ -46,8 +46,8 @@ const directors = [
   },
 ];
 
-const directorsList = document.querySelector("directors-list");
-const bestMovies = document.querySelector("movies");
+const directorsList = document.querySelector(".directors-list");
+const bestMovies = document.querySelector(".movies-list");
 
 directors.forEach((element) => {
   const listItem = document.createElement("li");
@@ -55,28 +55,24 @@ directors.forEach((element) => {
 
   const aboutDirector = document.createElement("div");
   aboutDirector.className = "about-container";
-
-  const filmsContainer = document.createElement("div");
-  filmsContainer.className = "films-container";
-
-  const name = document.createElement("p");
-  name.textContane = element.name;
-  name.className = "name-info";
   
+  const name = document.createElement("p");
+  name.textContent = element.name;
+  name.className = "name-info";
+
   const career = document.createElement("p");
-  career.textContane = element.career;
+  career.textContent = element.career;
   career.className = "career-info";
 
   const films = document.createElement("a");
   films.textContent = "Фильмография";
   films.className = "films";
-  films.href = item.films;
+  films.href = element.films;
   films.target = "_blank";
 
   directorsList.append(listItem);
-  listItem.append(aboutDirector, filmsContainer);
-  aboutDirector.append(name, career);
-  filmsContainer.append(films);
+  listItem.append(aboutDirector, );
+  aboutDirector.append(name, career, films);
 
   const topList = [];
 
@@ -84,6 +80,5 @@ directors.forEach((element) => {
     topList.push(element.top_rated_film);
   });
 
-  const topMovies  = topList.join(", ");
-  topMovies.textContant =  topList;
+   bestMovies.innerText  = topList.join(", ");
 });
